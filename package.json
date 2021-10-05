@@ -10,9 +10,20 @@
         "production": "mix --production"
     },
     "devDependencies": {
+        "@tailwindcss/forms": "^0.3.4",
+        "@tailwindcss/typography": "^0.4.1",
+        "autoprefixer": "^10.3.7",
         "axios": "^0.21",
         "laravel-mix": "^6.0.6",
         "lodash": "^4.17.19",
-        "postcss": "^8.1.14"
+        "postcss": "^8.3.9",
+        "tailwindcss": "^2.2.16",
+        "vue-loader": "^16.8.1"
+    },
+    "dependencies": {
+        "prettier": "^2.4.1",
+        "vue": "^3.2.19",
+        "vue-clamp": "^0.4.0",
+        "vuex": "^4.0.1"
     }
 }
