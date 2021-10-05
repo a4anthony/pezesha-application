@@ -1,6 +1,17 @@
 <template>
     <div>
-        <div v-if="loading" class="mt-12">
+        <div
+            v-if="!loading && characters && characters.length === 0"
+            class="flex w-full justify-center items-center"
+            style="min-height: 55vh"
+        >
+            <span>No search results</span>
+        </div>
+        <div
+            v-if="loading"
+            class="flex w-full justify-center items-center"
+            style="min-height: 55vh"
+        >
             <loading-icon />
         </div>
         <div
@@ -96,10 +107,12 @@ export default {
             handler(val) {
                 if (!val) {
                     setTimeout(() => {
-                        this.imgWidth =
-                            document.querySelector(
-                                ".character-card"
-                            ).clientWidth;
+                        if (document.querySelector(".character-card")) {
+                            this.imgWidth =
+                                document.querySelector(
+                                    ".character-card"
+                                ).clientWidth;
+                        }
                     }, 200);
                     setTimeout(() => {
                         this.showCharacters = true;
@@ -114,8 +127,10 @@ export default {
     mounted() {},
     created() {
         window.addEventListener("resize", () => {
-            this.imgWidth =
-                document.querySelector(".character-card").clientWidth;
+            if (document.querySelector(".character-card")) {
+                this.imgWidth =
+                    document.querySelector(".character-card").clientWidth;
+            }
         });
     },
     unmounted() {

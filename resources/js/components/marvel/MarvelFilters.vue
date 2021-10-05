@@ -87,6 +87,8 @@
                     border-gray-300
                     rounded-md
                 "
+                :value="query"
+                @input="setQuery"
                 placeholder="search character by name"
             />
         </div>
@@ -102,8 +104,64 @@ export default {
                 length: 20,
                 orderBy: "name",
                 query: "",
+                page: 1,
             },
+            query: "",
         };
+    },
+    watch: {
+        filters: {
+            handler(val) {
+                this.$emit("get-data", val);
+            },
+            deep: true,
+        },
+    },
+    mounted() {
+        console.log(JSON.parse(localStorage.getItem("filters")));
+
+        if (
+            localStorage.getItem("filters") &&
+            JSON.parse(localStorage.getItem("filters"))
+        ) {
+            this.filters = JSON.parse(localStorage.getItem("filters"));
+            this.query = this.filters.query;
+
+            this.setLink();
+        } else {
+            this.reset();
+        }
+    },
+    methods: {
+        reset() {
+            this.filters = {
+                length: 20,
+                orderBy: "name",
+                query: "",
+                page: 1,
+            };
+            this.query = "";
+            this.setLink();
+        },
+        setQuery(e) {
+            console.log(e);
+            const q = e.target.value;
+            this.query = q;
+            setTimeout(() => {
+                this.filters.query = q;
+            }, 500);
+        },
+        setLink() {
+            if (history.pushState) {
+                const newUrl =
+                    window.location.protocol +
+                    "//" +
+                    window.location.host +
+                    window.location.pathname +
+                    `?page=${this.filters.page}&length=${this.filters.length}&orderBy=${this.filters.orderBy}&query=${this.filters.query}`;
+                window.history.pushState({ path: newUrl }, "", newUrl);
+            }
+        },
     },
 };
 </script>
