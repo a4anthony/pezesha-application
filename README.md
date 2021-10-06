@@ -1,3 +1,11 @@
+[comment]: <> (<p align="center">)
+
+[comment]: <> (  <img src="https://github.com/a4anthony/coupon/blob/master/Resources/assets/images/add.png?raw=true" width="300"/>)
+
+[comment]: <> (  <img src="https://github.com/a4anthony/coupon/blob/master/Resources/assets/images/edit.png?raw=true" width="300" /> )
+
+[comment]: <> (</p>)
+
 ## Getting started
 
 1. Install composer dependencies
@@ -35,7 +43,7 @@ php artisan migrate
 
 7. Run storage link
 ```
-php artisan migrate
+php artisan storage:link
 ```
 
 8. Start queue work
