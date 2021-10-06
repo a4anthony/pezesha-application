@@ -118,8 +118,6 @@ export default {
         },
     },
     mounted() {
-        console.log(JSON.parse(localStorage.getItem("filters")));
-
         if (
             localStorage.getItem("filters") &&
             JSON.parse(localStorage.getItem("filters"))
@@ -144,7 +142,6 @@ export default {
             this.setLink();
         },
         setQuery(e) {
-            console.log(e);
             const q = e.target.value;
             this.query = q;
             setTimeout(() => {

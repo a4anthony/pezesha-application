@@ -83,13 +83,9 @@ export default {
             return this.$store.state.marvel.lastPage;
         },
     },
-    mounted() {
-        console.log(this.$store);
-        console.log(this.$refs.marvelFilters.filters);
-    },
+    mounted() {},
     methods: {
         getData(val) {
-            console.log(val);
             this.$store
                 .dispatch("marvel/getCharacters", val)
                 .then(() => {

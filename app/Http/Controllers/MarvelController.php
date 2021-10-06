@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Services\MarvelService;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Cache;
 
 class MarvelController extends Controller
 {

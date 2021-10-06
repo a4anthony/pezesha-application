@@ -54,7 +54,7 @@ const marvel = {
                             "filters",
                             JSON.stringify(filters)
                         );
-                        console.log(response.data);
+                        // console.log(response.data);
                         commit("setLoading", false);
                         commit("setCharacters", response.data.data);
                         commit("setTotal", response.data.total);

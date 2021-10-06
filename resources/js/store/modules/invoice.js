@@ -10,13 +10,12 @@ const invoice = {
     actions: {
         import({ commit }, form) {
             const url = route("invoice.import");
-            console.log(url);
             commit("setLoading", true);
             return new Promise((resolve, reject) => {
                 axios
                     .post(url, form)
                     .then((response) => {
-                        console.log(response.data);
+                        // console.log(response.data);
                         commit("setLoading", false);
                         resolve(response);
                     })

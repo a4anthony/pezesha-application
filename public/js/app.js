@@ -27020,13 +27020,9 @@ __webpack_require__.r(__webpack_exports__);
       return this.$store.state.marvel.lastPage;
     }
   },
-  mounted: function mounted() {
-    console.log(this.$store);
-    console.log(this.$refs.marvelFilters.filters);
-  },
+  mounted: function mounted() {},
   methods: {
     getData: function getData(val) {
-      console.log(val);
       this.$store.dispatch("marvel/getCharacters", val).then(function () {
         if (history.pushState) {
           var newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + "?page=".concat(val.page, "&length=").concat(val.length, "&orderBy=").concat(val.orderBy, "&query=").concat(val.query);
@@ -27162,8 +27158,6 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   mounted: function mounted() {
-    console.log(JSON.parse(localStorage.getItem("filters")));
-
     if (localStorage.getItem("filters") && JSON.parse(localStorage.getItem("filters"))) {
       this.filters = JSON.parse(localStorage.getItem("filters"));
       this.query = this.filters.query;
@@ -27186,7 +27180,6 @@ __webpack_require__.r(__webpack_exports__);
     setQuery: function setQuery(e) {
       var _this = this;
 
-      console.log(e);
       var q = e.target.value;
       this.query = q;
       setTimeout(function () {
@@ -28055,11 +28048,10 @@ var invoice = {
     "import": function _import(_ref, form) {
       var commit = _ref.commit;
       var url = route("invoice.import");
-      console.log(url);
       commit("setLoading", true);
       return new Promise(function (resolve, reject) {
         axios.post(url, form).then(function (response) {
-          console.log(response.data);
+          // console.log(response.data);
           commit("setLoading", false);
           resolve(response);
         })["catch"](function (err) {
@@ -28138,8 +28130,8 @@ var marvel = {
       commit("setError", false);
       return new Promise(function (resolve, reject) {
         axios.get("".concat(url, "?page=").concat(filters.page, "&length=").concat(filters.length, "&orderBy=").concat(filters.orderBy, "&query=").concat(filters.query)).then(function (response) {
-          localStorage.setItem("filters", JSON.stringify(filters));
-          console.log(response.data);
+          localStorage.setItem("filters", JSON.stringify(filters)); // console.log(response.data);
+
           commit("setLoading", false);
           commit("setCharacters", response.data.data);
           commit("setTotal", response.data.total);
