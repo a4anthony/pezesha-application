@@ -12,6 +12,7 @@ composer install
 
 2. copy .env.example to .env
 
+
 3. In .env, update database credentials
 ```
 DB_CONNECTION=mysql
@@ -33,27 +34,32 @@ MARVEL_PRIVATE_KEY=
 MARVEL_PUBLIC_KEY=
 ```
 
-6. Run migrations
+6. Run optimization
+```
+php artisan optimize
+```
+
+7. Run migrations
 ```
 php artisan migrate
 ```
 
-7. Run storage link
+8. Run storage link
 ```
 php artisan storage:link
 ```
 
-8. Start queue work
+9. Start queue work
 ```
 php artisan queue:work
 ```
 
-9. Install and build npm dependencies
+10. Install and build npm dependencies
 ```
 npm install && npm run dev
 ```
 
-10. Start your server and visit the link
+11. Start your server and visit the link
 ```
 php artisan serve
 ```
