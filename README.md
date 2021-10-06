@@ -1,10 +1,7 @@
-[comment]: <> (<p align="center">)
-
-[comment]: <> (  <img src="https://github.com/a4anthony/coupon/blob/master/Resources/assets/images/add.png?raw=true" width="300"/>)
-
-[comment]: <> (  <img src="https://github.com/a4anthony/coupon/blob/master/Resources/assets/images/edit.png?raw=true" width="300" /> )
-
-[comment]: <> (</p>)
+<p align="center">
+  <img src="https://github.com/a4anthony/pezesha-application/blob/main/1.png?raw=true" width="300"/>
+  <img src="https://github.com/a4anthony/pezesha-application/blob/main/2.png?raw=true?raw=true" width="300" /> 
+</p>
 
 ## Getting started
 
