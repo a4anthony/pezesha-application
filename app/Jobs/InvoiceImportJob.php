@@ -44,6 +44,13 @@ class InvoiceImportJob implements ShouldQueue
         \Excel::queueImport(new InvoiceImport, $this->path);
     }
 
+    /**
+     * Job failed
+     *
+     * @param \Throwable $exception
+     *
+     * @return void
+     */
     public function failed(Throwable $exception)
     {
         dd($exception);

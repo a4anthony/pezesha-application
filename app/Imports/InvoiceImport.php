@@ -19,7 +19,6 @@ class InvoiceImport implements ToModel, WithBatchInserts, WithChunkReading, With
      */
     public function model(array $row)
     {
-        //dd($row);
         return new Invoice([
             'invoice_no' => $row['invoiceno'],
             'stock_code' => $row['stockcode'],
@@ -56,6 +55,12 @@ class InvoiceImport implements ToModel, WithBatchInserts, WithChunkReading, With
         return 500;
     }
 
+    /**
+     * Heading row
+     *
+     *
+     * @return int
+     */
     public function headingRow(): int
     {
         return 1;
