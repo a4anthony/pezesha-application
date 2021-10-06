@@ -1,6 +1,6 @@
 <p align="center">
-  <img src="https://github.com/a4anthony/pezesha-application/blob/main/1.png?raw=true" width="300"/>
-  <img src="https://github.com/a4anthony/pezesha-application/blob/main/2.png?raw=true?raw=true" width="300" /> 
+  <img src="https://github.com/a4anthony/pezesha-application/blob/main/1.png?raw=true" width="200"/>
+  <img src="https://github.com/a4anthony/pezesha-application/blob/main/2.png?raw=true?raw=true" width="200" /> 
 </p>
 
 ## Getting started
