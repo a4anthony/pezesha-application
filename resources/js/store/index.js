@@ -1,6 +1,7 @@
 import { createStore } from "vuex";
 
 import marvel from "./modules/marvel";
+import invoice from "./modules/invoice";
 const store = createStore({
     state: {},
     getters: {},
@@ -8,6 +9,7 @@ const store = createStore({
     actions: {},
     modules: {
         marvel,
+        invoice,
     },
 });
 

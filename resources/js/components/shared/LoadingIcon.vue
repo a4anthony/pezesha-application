@@ -1,7 +1,8 @@
 <template>
     <span>
         <svg
-            class="animate-spin mx-auto text-white w-8 h-8"
+            class="animate-spin mx-auto text-white"
+            :class="size"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
@@ -26,6 +27,12 @@
 <script>
 export default {
     name: "LoadingIcon",
+    props: {
+        size: {
+            type: String,
+            default: "w-8 h-8",
+        },
+    },
 };
 </script>
 

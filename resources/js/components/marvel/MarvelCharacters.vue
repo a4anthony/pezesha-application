@@ -8,6 +8,13 @@
             <span>No search results</span>
         </div>
         <div
+            v-if="!loading && error"
+            class="flex w-full justify-center items-center"
+            style="min-height: 55vh"
+        >
+            <span>An error occurred</span>
+        </div>
+        <div
             v-if="loading"
             class="flex w-full justify-center items-center"
             style="min-height: 55vh"
@@ -91,6 +98,9 @@ export default {
     computed: {
         loading() {
             return this.$store.state.marvel.loading;
+        },
+        error() {
+            return this.$store.state.marvel.error;
         },
         characters() {
             return this.$store.state.marvel.characters;

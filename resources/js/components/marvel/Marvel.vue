@@ -9,10 +9,16 @@
             <marvel-filters @get-data="getData" ref="marvelFilters" />
         </div>
         <div
-            v-show="!loading && characters && characters.length > 0"
-            class="my-4 flex w-full items-center justify-between"
+            :class="
+                !loading && characters && characters.length > 0
+                    ? 'justify-between'
+                    : 'justify-end'
+            "
+            class="my-4 flex w-full items-center"
         >
-            <span class="text-sm text-gray-400 font-semibold"
+            <span
+                v-show="!loading && characters && characters.length > 0"
+                class="text-sm text-gray-400 font-semibold"
                 >{{ resultString }}
             </span>
             <button

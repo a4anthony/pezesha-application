@@ -8,6 +8,7 @@ const marvel = {
         loading: false,
         currentPage: 0,
         lastPage: 0,
+        error: false,
     }),
     mutations: {
         setLoading(state, data) {
@@ -34,11 +35,15 @@ const marvel = {
         setLastPage(state, data) {
             state.lastPage = data;
         },
+        setError(state, data) {
+            state.error = data;
+        },
     },
     actions: {
         getCharacters({ commit }, filters) {
             const url = route("get.marvel");
             commit("setLoading", true);
+            commit("setError", false);
             return new Promise((resolve, reject) => {
                 axios
                     .get(
@@ -65,6 +70,7 @@ const marvel = {
                     })
                     .catch((err) => {
                         commit("setLoading", false);
+                        commit("setError", true);
                         reject(err);
                     });
             });

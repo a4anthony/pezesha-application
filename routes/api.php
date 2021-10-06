@@ -19,4 +19,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-Route::get('/marvel/characters', [\App\Http\Controllers\MarvelController::class, 'getList'])->name('get.marvel');
+Route::get('/marvel/characters',
+    [\App\Http\Controllers\MarvelController::class, 'getList'])
+    ->name('get.marvel');
+
+Route::post('/invoice-import',
+    [\App\Http\Controllers\InvoiceController::class, 'import'])
+    ->name('invoice.import');

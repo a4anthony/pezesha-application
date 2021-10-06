@@ -1,14 +1,62 @@
 <template>
-    <div class="mx-auto container py-12">
-        <marvel />
+    <div>
+        <div class="bg-black flex justify-center space-x-6 py-8">
+            <button
+                v-for="(btn, index) in tasks"
+                :key="`btn${index}`"
+                type="submit"
+                @click="setTab(btn.key)"
+                :class="[
+                    btn.current
+                        ? `bg-red-600 text-white`
+                        : 'text-gray-500 hover:text-gray-700',
+                    ' px-3 py-2 font-medium text-sm rounded-md w-20 flex-none text-center',
+                ]"
+            >
+                {{ btn.name }}
+            </button>
+        </div>
+        <div class="mx-auto container py-12">
+            <marvel v-if="tasks.find((x) => x.current).key === 'task_1'" />
+            <import v-if="tasks.find((x) => x.current).key === 'task_2'" />
+        </div>
     </div>
 </template>
 
 <script>
 import Marvel from "./marvel/Marvel";
+import Import from "./import/Import";
 export default {
     name: "App",
-    components: { Marvel },
+    components: { Import, Marvel },
+    data() {
+        return {
+            tasks: [
+                {
+                    name: "Task 1",
+                    key: "task_1",
+                    current: true,
+                },
+                {
+                    name: "Task 2",
+                    key: "task_2",
+                    current: false,
+                },
+            ],
+        };
+    },
+    methods: {
+        setTab(tabKey) {
+            console.log(tabKey);
+            console.log(this.tasks);
+            // this.tasks[0].current = false;
+            // this.tasks[1].current = true;
+            console.log(this.tasks);
+            this.tasks.forEach((tab) => {
+                tab.current = tab.key === tabKey;
+            });
+        },
+    },
 };
 </script>
 
